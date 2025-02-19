@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sidebar</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .sidebar {
+      height: 100vh;
+      width: 300px;
+      background-color: #f1f1f1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    
+     .brand img {
+      width: 100px;  
+      height: auto;  
+      margin-bottom: 30px; 
+    }
+    .brand h1 {
+      font-size: 14px;
+      font-weight: bold;
+      color: #d32f2f;
+      margin-bottom: 30px;
+    }
+
+    .menu {
+      list-style: none;
+      width: 100%;
+      padding-left: 0;
+    }
+
+    .menu li {
+      margin: 10px 0;
+    }
+
+    .menu li a {
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: normal;
+      color: #333;
+      display: flex;
+      align-items: center;
+      padding: 7px 12px;
+      border-radius: 7px;
+      transition: background-color 0.3s;
+    }
+
+    .menu li a:hover {
+      background-color: #ddd;
+    }
+
+
+    .menu .main-item {
+      font-weight: bold;
+      font-size: 12px;
+      color: white;
+      background-color: #d32f2f; 
+      padding: 10px 12px;
+      border-radius: 4px;
+      text-align: center;
+      cursor: default;
+      white-space: nowrap; 
+      margin-bottom: 7px; 
+    }
+
+  </style>
+</head>
+<body>
+    <div class="sidebar">
+        
+        <div class="brand">
+            <img src="file:///C:/Users/Ryan%20Stephen/OneDrive/Desktop/OJT%20Task/Home_Credit_logo.png" alt="Home Credit Logo">
+
+        </div>
+    <ul class="menu">
+      <li><span class="main-item">INVOICE PROCESSING TOOL</span></li>
+      <li><a href="#">INVOICES</a></li>
+      <li><a href="#">DASHBOARD</a></li>
+      <li><a href="#">DATA REPORT</a></li>
+      <li><a href="#">AUDIT LOG</a></li>
+    </ul>
+  </div>
+</body>
+</html>

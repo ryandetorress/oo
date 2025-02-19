@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            width: 98%;
+            margin: 0 auto;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+
+        .filters .date-box {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .filters label {
+            font-weight: bold;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+
+        .filters input[type="date"] {
+            font-family: Arial, sans-serif;
+            padding: 5px 8px;
+            font-size: 12px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            width: 120px;
+        }
+
+        .export-btn {
+            background-color: #d32f2f;
+            color: white;
+            padding: 6px 12px;
+            font-size: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .export-btn:hover {
+            background-color: #c62828;
+        }
+
+        .invoice-table {
+            width: 100%;
+            table-layout: fixed; /* Ensures equal column widths */
+            border-collapse: collapse;
+            font-size: 10px;
+            margin-top: 10px; /* Reduced space above the table */
+        }
+
+        .invoice-table th, .invoice-table td {
+            padding: 4px; /* Minimal padding for tightly packed columns */
+            text-align: left;
+            color: #333;
+            background-color: white;
+            overflow: hidden;
+            white-space: normal; /* Allow text to wrap */
+        }
+
+        .invoice-table th {
+            font-weight: bold;
+            background-color: white;
+            color: #333;
+        }
+
+        .invoice-table tr:nth-child(even) {
+            background-color: white;
+        }
+
+        .invoice-table td {
+            font-size: 10px; /* Same font size for all cells */
+            background-color: white;
+        }
+
+        .invoice-table tr:hover {
+            background-color: #f2f2f2; /* Slightly darker background on hover */
+        }
+
+        /* Make the table responsive (if it overflows horizontally) */
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="filters">
+            <div class="date-box">
+                <label for="processed-from">Processed From:</label>
+                <input type="date" id="processed-from">
+                <label for="processed-to">To:</label>
+                <input type="date" id="processed-to">
+            </div>
+            <button class="export-btn">EXPORT REPORT</button>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="invoice-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Processed Date</th>
+                        <th>Processor</th>
+                        <th>Id</th>
+                        <th>Vendor Name</th>
+                        <th>Customer</th>
+                        <th>Invoice Number</th>
+                        <th>PO Number</th>
+                        <th>GR Number</th>
+                        <th>BIR Number</th>
+                        <th>HC TIN</th>
+                        <th>Vendor TIN</th>
+                        <th>Invoice Type</th>
+                        <th>Invoice Date</th>
+                        <th>Due Date</th>
+                        <th>Total Amount</th>
+                        <th>Total Amount Words</th>
+                        <th>Currency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>2025-01-29 20:40:05</td>
+                        <td>oh_processor</td>
+                        <td>9a01a942-f984-45f7-a342-263af283164d</td>
+                        <td>HC Consumer Finance</td>
+                        <td>Infobip Philippines Inc.</td>
+                        <td>2500/23</td>
+                        <td></td> <!-- Empty for PO Number -->
+                        <td>009-676-542-000</td>
+                        <td>Tax</td>
+                        <td></td> <!-- Empty for HC TIN -->
+                        <td>12/05/2023</td>
+                        <td>01/19/2024</td>
+                        <td>1,219,112.30</td>
+                        <td></td> <!-- Empty for Total Amount Words -->
+                        <td>PHP</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>2025-01-31 09:15:27</td>
+                        <td>oh_processor</td>
+                        <td>80729c24-4d90-4566-aef7-30243b33992f</td>
+                        <td>HC Consumer Finance</td>
+                        <td>Crown Worldwide Movers, Inc.</td>
+                        <td>315601-008327</td>
+                        <td></td> <!-- Empty for PO Number -->
+                        <td>1234567890</td>
+                        <td>INVOICE</td>
+                        <td></td> <!-- Empty for HC TIN -->
+                        <td>07/31/2024</td>
+                        <td>30 days</td>
+                        <td>203,515.20</td>
+                        <td></td> <!-- Empty for Total Amount Words -->
+                        <td>PHP</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

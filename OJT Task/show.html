@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .left-panel {
+            width: 50%;
+            padding-right: 20px;
+            box-sizing: border-box;
+        }
+
+        .right-panel {
+            width: 50%;
+            padding-left: 20px;
+            box-sizing: border-box;
+            height: 75vh; /* Full height for PDF viewer */
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        .invoice-table {
+            width: 70%;
+            table-layout: fixed;
+            border-collapse: collapse;
+            font-size: 10px; /* Smaller font size */
+            margin-bottom: 20px;
+        }
+
+        /* Only horizontal borders for the table */
+        .invoice-table th, .invoice-table td {
+            padding: 5px;
+            text-align: left;
+            background-color: white;
+            color: #333;
+            border-bottom: 1px solid #ddd; /* Horizontal border only */
+        }
+
+        .invoice-table th {
+            background-color: #ffffff;
+            font-weight: bold;
+        }
+
+        /* No border at the top and bottom of cells */
+        .invoice-table tr:first-child td, .invoice-table tr:last-child td {
+            border-top: none;
+            border-bottom: none;
+        }
+
+        .invoice-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .invoice-table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Editable column with reduced width */
+        .editable-cell {
+            width: 100px; /* Reduced width for editable column */
+            border: none;
+            font-size: 10px;
+            padding: 5px;
+            background-color: white;
+            outline: none;
+        }
+
+        .btn-assign {
+            padding: 10px 20px;
+            font-size: 14px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .btn-assign:hover {
+            background-color: #0056b3;
+        }
+
+        iframe {
+            width: 90%;
+            height: 100%;
+            border: none;
+            align-items: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Invoice Details</h1>
+    <div class="container">
+        <div class="left-panel">
+            <table class="invoice-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>OCR Value</th>
+                        <th>Modified Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>VendorName:</strong></td>
+                        <td>MEDIA METER INC.</td>
+                        <td><input type="text" value="None" class="editable-cell"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>CustomerName:</strong></td>
+                        <td>HC Consumer Finance Philippines, Inc.</td>
+                        <td><input type="text" value="None" class="editable-cell"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>InvoiceNumber:</strong></td>
+                        <td>1005</td>
+                        <td><input type="text" value="None" class="editable-cell"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>PONumber:</strong></td>
+                        <td>140001670</td>
+                        <td><input type="text" value="None" class="editable-cell"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>GR Number:</strong></td>
+                        <td>GR Number has to be a 10digit number.</td>
+                        <td><input type="text" value="None" class="editable-cell"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>BIR Number:</strong></td>
+                        <td>039AU202400003236</td>
+                        <td><input type="text" value="None" class="editable-cell"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>HCTIN:</strong></td>
+                        <td>HC TIN has to be a number with dashes containing '8453991'.</td>
+                        <td><input type="text" value="None" class="editable-cell"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>VendorTIN:</strong></td>
+                        <td>235-594-375-0000</td>
+                        <td><input type="text" value="None" class="editable-cell"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>InvoiceType:</strong></td>
+                        <td>Service Invoice</td>
+                        <td><input type="text" value="None" class="editable-cell"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>InvoiceDate:</strong></td>
+                        <td>07/22/2024</td>
+                        <td><input type="text" value="None" class="editable-cell"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>DueDate:</strong></td>
+                        <td>08/21/2024</td>
+                        <td><input type="text" value="None" class="editable-cell"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>TotalAmount:</strong></td>
+                        <td>29700.00</td>
+                        <td><input type="text" value="None" class="editable-cell"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>TotalAmountWords:</strong></td>
+                        <td>None</td>
+                        <td><input type="text" value="None" class="editable-cell"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Currency:</strong></td>
+                        <td>PHP</td>
+                        <td><input type="text" value="None" class="editable-cell"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>For further processing you can assign:<button class="btn-assign">Assign Processor</button></p>
+            
+        </div>
+        <div class="right-panel">
+            
+            <iframe src="pdfs/fffff.pdf" frameborder="0"></iframe>
+        </div>
+    </div>
+</body>
+</html>

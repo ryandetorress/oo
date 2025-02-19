@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Logs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: left;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        /* Form Section */
+        .form-container {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+            align-items: flex-start; /* Align labels and inputs to the left */
+        }
+
+        .form-row label {
+            font-size: 12px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .form-row input[type="date"] {
+            padding: 8px;
+            font-size: 12px;
+            font-family: Arial, sans-serif;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 200px; /* Make both calendars the same width */
+        }
+
+        .form-row button {
+            padding: 10px 20px;
+            font-size: 12px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            width: 200px;
+            margin-top: 10px;
+        }
+
+        .form-row button:hover {
+            opacity: 0.8;
+        }
+
+        /* Results Section */
+        .results {
+            margin-bottom: 20px;
+            font-size: 12px;
+            color: #555;
+            text-align: left;
+        }
+
+        /* Export Button */
+        .export-btn {
+            display: block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #d32f2f;
+            color: white;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 4px;
+            width: auto;
+            margin-left: auto;
+            margin-right: 0;
+            font-size: 10px;
+        }
+
+        .export-btn:hover {
+            background-color: #c62828;
+        }
+
+        /* Table Styles */
+        .audit-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        .audit-table th, .audit-table td {
+            padding: 12px;
+            text-align: left;
+            color: #333;
+        }
+
+        .audit-table th {
+            background-color: #f1f1f1;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .audit-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .audit-table td {
+            border-top: 1px solid #ddd;
+        }
+
+        .audit-table td button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-right: 5px;
+            border-radius: 4px;
+        }
+
+        .audit-table td button:hover {
+            background-color: #45a049;
+        }
+
+        .audit-table td button:last-child {
+            background-color: #d32f2f;
+        }
+
+        .audit-table td button:last-child:hover {
+            background-color: #c62828;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Audit Logs</h1>
+
+        <!-- Form Section -->
+        <div class="form-container">
+            <!-- From Date -->
+            <div class="form-row">
+                <label for="start-date">From Date:</label>
+                <input type="date" id="start-date" name="start-date" required>
+            </div>
+
+            <!-- To Date -->
+            <div class="form-row">
+                <label for="end-date">To Date:</label>
+                <input type="date" id="end-date" name="end-date" required>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-row">
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results">
+            <p>Showing results from <span id="start-date-display">2025-01-13</span> to <span id="end-date-display">2025-02-10</span></p>
+            <button class="export-btn">Export to CSV</button>
+        </div>
+
+        <table class="audit-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Created</th>
+                    <th>User</th>
+                    <th>Action</th>
+                    <th>Resource (name/id)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2025-01-25 20:37:12.17133</td>
+                    <td>from_email: Ondrej.Horak1@embedit.com</td>
+                    <td>CREATED</td>
+                    <td>DOCUMENT / 4f9f9327-18fa-4f63-92f2-b1d0a3a4582a</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>2025-01-20 20:39:45.883924</td>
+                    <td>oh_processor</td>
+                    <td>UPDATED</td>
+                    <td>INVOICE / 9a01a942-f984-45f7-a342-263af283164d</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>2025-01-20 20:40:05.963968</td>
+                    <td>oh_processor</td>
+                    <td>PROCESSED</td>
+                    <td>INVOICE / 9a01a942-f984-45f7-a342-263af283164d</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>
